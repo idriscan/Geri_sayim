@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d25">
+<meta name="description" content="Grand Theft Auto VI — Yeni Zelanda çıkışına özel geri sayım.">
+<title>GTA VI — Launch Countdown</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--pink:#ff4fa3;--cyan:#5ce7ff;--purple:#9b72ff;--bg:#100d25;--muted:#aaa6c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:#fff;background:var(--bg);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:
+ radial-gradient(ellipse at 18% 22%,rgba(255,66,157,.22),transparent 36%),
+ radial-gradient(ellipse at 83% 26%,rgba(74,210,255,.18),transparent 34%),
+ radial-gradient(ellipse at 50% 100%,rgba(128,70,255,.24),transparent 45%),
+ linear-gradient(145deg,#100d25,#17102f 55%,#090c20)}
+.noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+.grid{position:fixed;inset:45% -20% -35%;z-index:-2;opacity:.2;transform:perspective(500px) rotateX(62deg);transform-origin:top;background-image:linear-gradient(rgba(92,231,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(92,231,255,.5) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 75%,transparent);animation:gridmove 12s linear infinite}
+@keyframes gridmove{to{background-position:0 55px,55px 0}}
+.orb{position:fixed;width:330px;height:330px;border-radius:50%;filter:blur(90px);opacity:.19;z-index:-2;pointer-events:none;animation:float 12s ease-in-out infinite alternate}
+.orb.one{background:#ff3d9a;top:8%;left:-170px}.orb.two{background:#3bcfff;right:-170px;top:48%;animation-delay:-5s}
+@keyframes float{to{transform:translate(60px,-35px) scale(1.15)}}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.09)}
+.brand{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:800;letter-spacing:2px}
+.brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 0 25px #ff4fa355;font-family:'Barlow Condensed';font-size:18px}
+.nav-right{font-size:11px;letter-spacing:1.8px;color:#c5c0df;display:flex;align-items:center;gap:9px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#63f5bb;box-shadow:0 0 12px #63f5bb;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.75)}}
+main{padding:62px 0 45px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid #ffffff20;border-radius:99px;background:#ffffff0a;color:#d9d3f0;font-size:10px;letter-spacing:2.2px;font-weight:700;backdrop-filter:blur(15px)}
+.eyebrow:before,.eyebrow:after{content:"";width:17px;height:1px;background:linear-gradient(90deg,transparent,var(--pink))}
+.eyebrow:after{transform:rotate(180deg)}
+h1{font-family:'Barlow Condensed',Impact,sans-serif;font-size:clamp(76px,15vw,166px);line-height:.78;letter-spacing:-3px;margin:28px 0 14px;font-weight:900;text-transform:uppercase;text-shadow:0 5px 55px #ff4fa344}
+h1 span{display:block;background:linear-gradient(100deg,#fff 8%,#ff8bc4 42%,#83eaff 78%,#fff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.subtitle{font-size:clamp(13px,2vw,16px);color:#c4bfd9;letter-spacing:3px;text-transform:uppercase;font-weight:600}
+.subtitle b{color:var(--cyan);font-weight:700}
+.count-label{margin:55px 0 17px;color:#aaa6c4;font-size:10px;letter-spacing:3px;font-weight:700}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;max-width:850px;margin:0 auto}
+.time-card{position:relative;overflow:hidden;padding:25px 10px 20px;border:1px solid rgba(255,255,255,.14);border-radius:19px;background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025));box-shadow:0 18px 50px #0003,inset 0 1px 0 #ffffff17;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.time-card:before{content:"";position:absolute;inset:0 15% auto;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent);opacity:.8}
+.number{font-family:'Barlow Condensed',Impact,sans-serif;font-size:clamp(48px,9vw,82px);line-height:1;font-weight:800;letter-spacing:1px;font-variant-numeric:tabular-nums;text-shadow:0 0 28px #8b74ff35}
+.unit{margin-top:10px;font-size:10px;letter-spacing:2.5px;color:#aaa6c4;font-weight:700}
+.separator{display:none}
+.date-line{margin:22px auto 0;color:#b8b2d0;font-size:12px;letter-spacing:1.1px}
+.date-line strong{color:#fff}
+.progress-wrap{max-width:530px;margin:30px auto 0}
+.progress-top{display:flex;justify-content:space-between;color:#aaa6c4;font-size:10px;letter-spacing:1.4px;margin-bottom:9px}
+.progress{height:4px;border-radius:10px;background:#ffffff18;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));box-shadow:0 0 15px #ff4fa3;transition:width .5s}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:850px;margin:55px auto 0;text-align:left}
+.info{padding:17px 18px;border:1px solid #ffffff13;border-radius:15px;background:#ffffff08;backdrop-filter:blur(12px)}
+.info small{display:block;color:#8f89aa;font-size:9px;letter-spacing:1.8px;font-weight:700;margin-bottom:8px}
+.info strong{font-size:13px;font-weight:700}
+.info .accent{color:var(--cyan)}
+footer{padding:22px 0 30px;border-top:1px solid #ffffff10;display:flex;justify-content:space-between;gap:15px;color:#77728f;font-size:10px;letter-spacing:1px}
+footer span:last-child{color:#aaa6c4}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;padding:11px 16px;border:1px solid #ffffff20;border-radius:12px;background:#211a3beF;color:#fff;font-size:12px;transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:620px){
+ nav{height:66px}.nav-right{font-size:9px;letter-spacing:1px}
+ main{padding:55px 0 35px}h1{letter-spacing:-1px;margin-top:27px}
+ .subtitle{letter-spacing:1.8px}
+ .count-label{margin-top:43px}
+ .timer{gap:8px}.time-card{padding:20px 4px 16px;border-radius:14px}
+ .number{font-size:clamp(40px,12vw,64px)}.unit{font-size:8px;letter-spacing:1.3px}
+ .info-grid{grid-template-columns:1fr;gap:8px;margin-top:38px}
+ .info{display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+ .info small{margin:0}.info strong{text-align:right}
+ footer{font-size:9px;flex-direction:column;align-items:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="noise"></div><div class="grid"></div><div class="orb one"></div><div class="orb two"></div>
+<div class="wrap">
+<nav>
+ <div class="brand"><div class="brand-mark">VI</div><span>COUNTDOWN PROJECT</span></div>
+ <div class="nav-right"><i class="live-dot"></i> CANLI GERİ SAYIM</div>
+</nav>
+<main>
+ <div class="eyebrow">THE WAIT IS ALMOST OVER</div>
+ <h1><span>GRAND</span><span>THEFT AUTO VI</span></h1>
+ <div class="subtitle">VICE CITY <b>•</b> NEW ZEALAND EARLY RELEASE</div>
+ <div class="count-label">LANSMANA KALAN SÜRE</div>
+ <section class="timer" aria-label="Geri sayım">
+  <div class="time-card"><div class="number" id="days">000</div><div class="unit">GÜN</div></div>
+  <div class="time-card"><div class="number" id="hours">00</div><div class="unit">SAAT</div></div>
+  <div class="time-card"><div class="number" id="minutes">00</div><div class="unit">DAKİKA</div></div>
+  <div class="time-card"><div class="number" id="seconds">00</div><div class="unit">SANİYE</div></div>
+ </section>
+ <div class="date-line">HEDEF ZAMAN: <strong>18 KASIM 2026 • 14:00</strong> <span style="color:#77728f">— TÜRKİYE SAATİ</span></div>
+ <div class="progress-wrap">
+  <div class="progress-top"><span>BEKLEYİŞİN SON DÜZLÜĞÜ</span><span id="percent">—</span></div>
+  <div class="progress"><div class="progress-fill" id="progress"></div></div>
+ </div>
+ <section class="info-grid">
+  <div class="info"><small>YENİ ZELANDA</small><strong class="accent">19 Kasım 2026 · 00:00 NZDT</strong></div>
+  <div class="info"><small>TÜRKİYE</small><strong>18 Kasım 2026 · 14:00 TRT</strong></div>
+  <div class="info"><small>DURUM</small><strong id="status">Çıkış bekleniyor</strong></div>
+ </section>
+</main>
+<footer><span>UNOFFICIAL FAN COUNTDOWN · GTA VI</span><span>VICE CITY'YE GÖRÜŞÜRÜZ.</span></footer>
+</div>
+<div class="toast" id="toast">Geri sayım tamamlandı. Vice City seni bekliyor!</div>
+<script>
+(() => {
+ // 18 Kasım 2026 14:00 Türkiye saati (UTC+3) = 11:00 UTC.
+ const target = Date.UTC(2026, 10, 18, 11, 0, 0);
+ // İlerleme çubuğu, 18 Kasım 2025 14:00 TRT başlangıcından hesaplanır.
+ const start = Date.UTC(2025, 10, 18, 11, 0, 0);
+ const $ = id => document.getElementById(id);
+ const pad = n => String(n).padStart(2, '0');
+ let finishedShown = false;
+ function update(){
+   const now = Date.now();
+   let diff = target - now;
+   if(diff <= 0){
+     ['days','hours','minutes','seconds'].forEach(id => $(id).textContent = id === 'days' ? '000' : '00');
+     $('status').textContent = 'ZAMAN GELDİ!';
+     $('percent').textContent = '100%';
+     $('progress').style.width = '100%';
+     if(!finishedShown){$('toast').classList.add('show');finishedShown=true;}
+     return;
+   }
+   const days = Math.floor(diff / 86400000); diff %= 86400000;
+   const hours = Math.floor(diff / 3600000); diff %= 3600000;
+   const minutes = Math.floor(diff / 60000); diff %= 60000;
+   const seconds = Math.floor(diff / 1000);
+   $('days').textContent = String(days).padStart(3,'0');
+   $('hours').textContent = pad(hours);
+   $('minutes').textContent = pad(minutes);
+   $('seconds').textContent = pad(seconds);
+   const p = Math.max(0,Math.min(100,((now-start)/(target-start))*100));
+   $('progress').style.width = p.toFixed(3)+'%';
+   $('percent').textContent = p.toFixed(1)+'%';
+   $('status').textContent = 'Çıkış bekleniyor';
+ }
+ update(); setInterval(update,1000);
+})();
+</script>
+</body>
+</html>
